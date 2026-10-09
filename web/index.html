@@ -1,0 +1,630 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#edf2ee" />
+    <title>Quick Quiz</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">Q</span
+        ><span class="brand-name">Quick Quiz</span>
+      </div>
+      <div class="header-actions">
+        <div class="top-note">A little room for curiosity</div>
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          Dark mode
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home-view" class="view active" aria-labelledby="home-title">
+        <p class="eyebrow">Quiz desk / Ready</p>
+        <h1 id="home-title">Choose your next quiz.</h1>
+        <p class="intro">
+          Pick a quick round, make one of your own, or warm up with the sample
+          set.
+        </p>
+
+        <div class="timer-setting">
+          <label for="time-limit-select">Time per question</label>
+          <select id="time-limit-select">
+            <option value="15">15 seconds</option>
+            <option value="30" selected>30 seconds</option>
+            <option value="45">45 seconds</option>
+            <option value="60">60 seconds</option>
+          </select>
+        </div>
+        <div class="topic-picker-wrap">
+          <label class="topic-picker-label" for="topic-select"
+            >Quiz topic</label
+          >
+          <div
+            id="topic-picker"
+            class="topic-picker"
+            aria-label="Select a trivia topic"
+          ></div>
+          <select id="topic-select" hidden>
+            <option value="">Any topic</option>
+            <option value="9">General knowledge</option>
+            <option value="10">Books</option>
+            <option value="11">Film</option>
+            <option value="12">Music</option>
+            <option value="14">Television</option>
+            <option value="15">Video games</option>
+            <option value="17">Science &amp; nature</option>
+            <option value="18">Computers</option>
+            <option value="19">Mathematics</option>
+            <option value="20">Mythology</option>
+            <option value="21">Sports</option>
+            <option value="22">Geography</option>
+            <option value="23">History</option>
+            <option value="24">Politics</option>
+            <option value="25">Art</option>
+            <option value="26">Celebrities</option>
+            <option value="27">Animals</option>
+            <option value="28">Vehicles</option>
+            <option value="29">Comics</option>
+            <option value="30">Gadgets</option>
+            <option value="31">Anime &amp; manga</option>
+            <option value="32">Cartoons &amp; animation</option>
+          </select>
+        </div>
+        <div class="home-grid">
+          <div class="mode-list" aria-label="Quiz options">
+            <button class="mode" id="online-button" type="button">
+              <span class="mode-index">01</span>
+              <span
+                ><span class="mode-title">Random questions</span
+                ><span class="mode-subtitle"
+                  >A fresh mix from Open Trivia DB</span
+                ></span
+              >
+              <span class="mode-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+            <button class="mode" id="create-button" type="button">
+              <span class="mode-index">02</span>
+              <span
+                ><span class="mode-title">Make a quiz</span
+                ><span class="mode-subtitle"
+                  >Write questions and set the answers</span
+                ></span
+              >
+              <span class="mode-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+            <button class="mode" id="sample-button" type="button">
+              <span class="mode-index">03</span>
+              <span
+                ><span class="mode-title">Sample round</span
+                ><span class="mode-subtitle"
+                  >Three questions to get started</span
+                ></span
+              >
+              <span class="mode-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+            <button class="mode" id="about-button" type="button">
+              <span class="mode-index">04</span>
+              <span
+                ><span class="mode-title">About me</span
+                ><span class="mode-subtitle">Who made this and why</span></span
+              >
+              <span class="mode-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+            <button class="mode" id="history-button" type="button">
+              <span class="mode-index">05</span>
+              <span
+                ><span class="mode-title">Past quizzes</span
+                ><span class="mode-subtitle" id="history-count"
+                  >No completed quizzes yet</span
+                ></span
+              >
+              <span class="mode-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+          </div>
+          <aside class="side-note">
+            <strong>Keep your streak going.</strong>
+            <p>
+              Every completed round is saved in this browser so you can review
+              it later.
+            </p>
+          </aside>
+        </div>
+        <p id="home-status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="about-view" class="view panel" aria-labelledby="about-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">About me</p>
+            <h1 id="about-title">Who made this and why</h1>
+          </div>
+          <button class="text-button" data-view="home" type="button">
+            Back to menu
+          </button>
+        </div>
+        <div class="about-card">
+          <p>
+            This project was made by Space. I used ChatGPT to help with some of
+            the code and ideas, which I want to be open about.
+          </p>
+          <p>
+            I had been thinking about making a simple, fun quiz app for a long
+            time. I wanted to make it available on GitHub Pages so anyone can
+            enjoy a quick quiz. I hope you like it!
+          </p>
+          <p>
+            Honestly, I used AI partly because I find web development a bit of a
+            slog. I prefer low-level programming, but web apps do have great
+            animations and visual appeal.
+          </p>
+          <p>
+            Found a bug or have a fix to contribute? Visit my GitHub repository
+            and open a pull request (PR).
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="builder-view"
+        class="view panel"
+        aria-labelledby="builder-title"
+      >
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Your quiz / Builder</p>
+            <h1 id="builder-title">Make a quiz.</h1>
+          </div>
+          <button class="text-button" data-view="home" type="button">
+            Back to menu
+          </button>
+        </div>
+        <form id="question-form">
+          <div class="field-grid">
+            <div class="field full">
+              <label for="question-input">Question</label
+              ><input
+                id="question-input"
+                name="prompt"
+                required
+                maxlength="300"
+                placeholder="What would you like to ask?"
+              />
+            </div>
+            <div class="field">
+              <label for="option-0">Choice 1</label
+              ><input
+                id="option-0"
+                required
+                maxlength="120"
+                placeholder="First answer"
+              />
+            </div>
+            <div class="field">
+              <label for="option-1">Choice 2</label
+              ><input
+                id="option-1"
+                required
+                maxlength="120"
+                placeholder="Second answer"
+              />
+            </div>
+            <div class="field">
+              <label for="option-2">Choice 3</label
+              ><input
+                id="option-2"
+                required
+                maxlength="120"
+                placeholder="Third answer"
+              />
+            </div>
+            <div class="field">
+              <label for="option-3">Choice 4</label
+              ><input
+                id="option-3"
+                required
+                maxlength="120"
+                placeholder="Fourth answer"
+              />
+            </div>
+            <div class="field full">
+              <label for="correct-choice">Correct choice</label
+              ><select id="correct-choice" required>
+                <option value="" selected disabled>
+                  Choose the correct answer
+                </option>
+                <option value="0">Choice 1</option>
+                <option value="1">Choice 2</option>
+                <option value="2">Choice 3</option>
+                <option value="3">Choice 4</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="secondary" type="submit">Add question</button
+            ><button class="primary" id="start-custom" type="button">
+              Start quiz <span id="draft-count">(0)</span>
+            </button>
+          </div>
+          <p
+            id="builder-status"
+            class="status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+        <div
+          id="draft-list"
+          class="question-stack"
+          aria-label="Questions in this quiz"
+        ></div>
+      </section>
+
+      <section
+        id="quiz-view"
+        class="view panel"
+        aria-labelledby="question-text"
+      >
+        <aside
+          class="creature-scene sheep-scene"
+          aria-label="Lamb reacts to your answer"
+        >
+          <svg
+            class="creature-art sheep-art"
+            viewBox="0 0 150 150"
+            role="img"
+            aria-label="A fluffy white lamb"
+          >
+            <ellipse
+              cx="75"
+              cy="134"
+              rx="52"
+              ry="7"
+              fill="#173c32"
+              opacity=".12"
+            />
+            <g class="sheep-body">
+              <circle
+                cx="46"
+                cy="77"
+                r="23"
+                fill="#fffdf5"
+                stroke="#d8dfd5"
+                stroke-width="2"
+              />
+              <circle
+                cx="67"
+                cy="65"
+                r="26"
+                fill="#fffdf5"
+                stroke="#d8dfd5"
+                stroke-width="2"
+              />
+              <circle
+                cx="91"
+                cy="72"
+                r="25"
+                fill="#fffdf5"
+                stroke="#d8dfd5"
+                stroke-width="2"
+              />
+              <circle
+                cx="105"
+                cy="91"
+                r="22"
+                fill="#fffdf5"
+                stroke="#d8dfd5"
+                stroke-width="2"
+              />
+              <circle
+                cx="65"
+                cy="91"
+                r="27"
+                fill="#fffdf5"
+                stroke="#d8dfd5"
+                stroke-width="2"
+              />
+              <path
+                d="M89 56c2-15 15-22 28-14 8 5 12 15 8 25l-15 14-20-5z"
+                fill="#e9c4a4"
+                stroke="#b98768"
+                stroke-width="2"
+              />
+              <path
+                d="M91 55 84 43c-2-5 2-9 7-7l12 11m17 5 12-8c5-3 9 1 6 6l-9 15"
+                fill="#d7a98a"
+                stroke="#b98768"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <circle cx="105" cy="56" r="2.7" fill="#26352f" />
+              <circle cx="124" cy="55" r="2.7" fill="#26352f" />
+              <ellipse cx="115" cy="67" rx="5" ry="3.5" fill="#df806f" />
+              <path
+                class="lamb-smile"
+                d="M110 73q5 5 10 0"
+                fill="none"
+                stroke="#714f47"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                class="sad-mouth"
+                d="M110 77q5-7 10 0"
+                fill="none"
+                stroke="#714f47"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <circle cx="103" cy="68" r="4" fill="#ec9b8a" opacity=".55" />
+            </g>
+            <path
+              d="M45 105v18q0 5 6 5t6-5v-17m29 0v17q0 5 6 5t6-5v-20"
+              fill="#51443e"
+              stroke="#3d3430"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <g class="sheep-leg">
+              <path
+                d="M96 101v20q0 5 6 5t6-5v-19"
+                fill="#51443e"
+                stroke="#3d3430"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </g>
+            <g class="tear-drops" fill="#56a9d7">
+              <path d="M99 69q-7 10 0 12 7-2 0-12z" />
+              <path d="M126 66q-7 10 0 12 7-2 0-12z" />
+              <path d="M94 76q-4 7 0 8 4-1 0-8z" />
+              <path d="M131 74q-4 7 0 8 4-1 0-8z" />
+            </g>
+            <g class="tear-streams">
+              <path d="M104 59C96 65 91 77 96 88C101 99 100 108 101 120" />
+              <path d="M106 60C101 72 99 83 103 94C106 104 105 112 106 121" />
+              <path d="M124 59C132 65 137 77 132 88C127 99 128 108 127 120" />
+              <path d="M122 60C127 72 129 83 125 94C122 104 123 112 122 121" />
+            </g>
+            <g class="tear-highlights">
+              <path d="M104 59C96 65 91 77 96 88C101 99 100 108 101 120" />
+              <path d="M106 60C101 72 99 83 103 94C106 104 105 112 106 121" />
+              <path d="M124 59C132 65 137 77 132 88C127 99 128 108 127 120" />
+              <path d="M122 60C127 72 129 83 125 94C122 104 123 112 122 121" />
+            </g>
+            <g
+              class="impact-mark"
+              fill="none"
+              stroke="#e5ad32"
+              stroke-width="3"
+              stroke-linecap="round"
+            >
+              <path d="m120 100 8-7m-3 14 11-1m-19-16 1-9" />
+            </g>
+          </svg>
+        </aside>
+        <aside
+          class="creature-scene snake-scene"
+          aria-label="A little snake reacts to your answer"
+        >
+          <svg
+            class="creature-art snake-body"
+            viewBox="0 0 150 150"
+            role="img"
+            aria-label="A small green snake"
+          >
+            <ellipse
+              cx="76"
+              cy="134"
+              rx="48"
+              ry="7"
+              fill="#173c32"
+              opacity=".12"
+            />
+            <path
+              d="M27 116c0-19 30-19 30 0s30 19 30 0-27-20-27-38c0-14 12-21 27-21"
+              fill="none"
+              stroke="#4b9a69"
+              stroke-width="17"
+              stroke-linecap="round"
+            />
+            <path
+              d="M27 116c0-19 30-19 30 0s30 19 30 0-27-20-27-38c0-14 12-21 27-21"
+              fill="none"
+              stroke="#82bd79"
+              stroke-width="9"
+              stroke-linecap="round"
+            />
+            <path
+              d="M76 57c1-17 13-27 29-25 15 2 22 14 17 26-4 10-17 13-29 8"
+              fill="#65ad70"
+              stroke="#34764f"
+              stroke-width="2"
+            />
+            <ellipse cx="105" cy="43" rx="13" ry="9" fill="#fff5d9" />
+            <circle cx="107" cy="43" r="3.7" fill="#24372d" />
+            <path
+              d="M119 53q11 3 15-3m-2 3 8 3m-8-3 7-4"
+              fill="none"
+              stroke="#ce6558"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M72 72q-8-7-14-2"
+              fill="none"
+              stroke="#34764f"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </aside>
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow" id="quiz-source">Quick round</p>
+            <h1>Quiz in progress.</h1>
+          </div>
+          <button class="text-button" data-view="home" type="button">
+            Leave quiz
+          </button>
+        </div>
+        <div class="quiz-top">
+          <span id="progress-label">Question 1 of 3</span>
+          <div class="quiz-tools">
+            <span class="timer-chip" id="timer-chip" aria-live="off">
+              <span id="timer-value">30</span
+              ><span id="timer-unit">s</span></span
+            >
+            <span class="score-pill"
+              >Score <span id="score-label">0</span></span
+            >
+          </div>
+        </div>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="Quiz progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <h2 id="question-text" class="question-text"></h2>
+        <div id="answer-list" class="answer-list"></div>
+        <div class="quiz-footer">
+          <p id="feedback" class="feedback" aria-live="polite"></p>
+          <div class="form-actions">
+            <button class="secondary" id="skip-button" type="button">
+              Skip
+            </button>
+            <button
+              class="secondary"
+              id="previous-button"
+              type="button"
+              disabled
+            >
+              Previous
+            </button>
+            <button class="primary" id="next-button" type="button" disabled>
+              Choose an answer
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="results-view"
+        class="view panel"
+        aria-labelledby="results-title"
+      >
+        <p class="eyebrow">Round complete</p>
+        <h1 id="results-title">Nicely done.</h1>
+        <div class="result-line">
+          <div class="result-score" id="final-score">0/0</div>
+          <div class="result-copy" id="result-copy"></div>
+        </div>
+        <div class="stats-grid" aria-label="Quiz statistics">
+          <div class="stat-item">
+            <span class="stat-value" id="stat-answered">0</span
+            ><span class="stat-label">Answered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="stat-correct">0</span
+            ><span class="stat-label">Correct</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="stat-incorrect">0</span
+            ><span class="stat-label">Incorrect</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="stat-skipped">0</span
+            ><span class="stat-label">Skipped</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value" id="stat-accuracy">0%</span
+            ><span class="stat-label">Answered accuracy</span>
+          </div>
+        </div>
+        <div class="chart-panel">
+          <h2>Performance graph</h2>
+          <div class="stats-chart" aria-label="Quiz performance breakdown">
+            <div class="chart-row">
+              <span>Correct</span>
+              <div class="chart-track">
+                <div class="chart-bar chart-correct" id="chart-correct"></div>
+              </div>
+              <strong id="chart-correct-value">0%</strong>
+            </div>
+            <div class="chart-row">
+              <span>Incorrect</span>
+              <div class="chart-track">
+                <div
+                  class="chart-bar chart-incorrect"
+                  id="chart-incorrect"
+                ></div>
+              </div>
+              <strong id="chart-incorrect-value">0%</strong>
+            </div>
+            <div class="chart-row">
+              <span>Skipped</span>
+              <div class="chart-track">
+                <div class="chart-bar chart-skipped" id="chart-skipped"></div>
+              </div>
+              <strong id="chart-skipped-value">0%</strong>
+            </div>
+            <div class="chart-row">
+              <span>Answered</span>
+              <div class="chart-track">
+                <div class="chart-bar chart-answered" id="chart-answered"></div>
+              </div>
+              <strong id="chart-answered-value">0%</strong>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="primary" id="play-again" type="button">
+            Play again</button
+          ><button class="secondary" data-view="home" type="button">
+            Back to menu
+          </button>
+        </div>
+      </section>
+
+      <section
+        id="history-view"
+        class="view panel"
+        aria-labelledby="history-title"
+      >
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Saved in this browser</p>
+            <h1 id="history-title">Past quizzes.</h1>
+          </div>
+          <button class="text-button" data-view="home" type="button">
+            Back to menu
+          </button>
+        </div>
+        <div class="form-actions history-tools">
+          <button class="secondary" id="clear-history" type="button">
+            Delete all history
+          </button>
+        </div>
+        <div id="history-list" class="history-list"></div>
+        <p id="history-empty" class="status">
+          Completed quizzes will appear here.
+        </p>
+      </section>
+    </main>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
